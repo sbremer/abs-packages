@@ -1,0 +1,5 @@
+# git ignore for arch build system
+*/pkg
+*/src
+*/*.tar.gz
+*/*.tar.xz
