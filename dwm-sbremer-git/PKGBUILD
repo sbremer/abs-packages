@@ -13,8 +13,10 @@ depends=('libx11' 'libxinerama' 'libxft')
 makedepends=('git')
 provides=('dwm')
 conflicts=('dwm')
-source=("$_pkgname::git+https://github.com/sbremer/dwm#branch=mydwm")
-md5sums=('SKIP')
+source=(dwm.desktop
+		"$_pkgname::git+https://github.com/sbremer/dwm#branch=mydwm")
+md5sums=('939f403a71b6e85261d09fc3412269ee'
+		'SKIP')
 
 #pkgver(){
 #  cd $_pkgname
@@ -31,5 +33,6 @@ package() {
   make PREFIX=/usr DESTDIR="$pkgdir" install
   install -m644 -D LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
   install -m644 -D README "$pkgdir/usr/share/doc/$pkgname/README"
+  echo $PWD
   install -m644 -D ../dwm.desktop "$pkgdir/usr/share/xsessions/dwm.desktop"
 }
